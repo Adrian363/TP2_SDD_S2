@@ -28,3 +28,36 @@ t_queue *initQueue(int maxSize){
     }
     return queue;
 }
+
+void freeQueue(t_queue *head){
+    free(head->headStack);
+    free(head);
+    head=NULL;
+}
+
+int add_value(t_queue *head, int val){
+    int state=0;
+    if(isFullQ(head)==0){
+        *(head->headStack+(head->firstElem+head->numElem)%head->maxSize)=val;
+        head->numElem+=1;
+        head->lastElem+=1;
+        state=1;
+    }
+
+    return state;
+}
+
+void get_val(t_queue *head, int *ad_val, int *state){
+    *state=1; // va rester à 1 si on ne peut pas dépiler
+    if(isEmptyQ(head)==0){
+        *ad_val=*(head->headStack+(head->firstElem)%head->numElem);
+        head->numElem--;
+        head->firstElem+=1;
+        *state=0;
+    }
+
+}
+
+int main(){
+    printf("OK");
+}
