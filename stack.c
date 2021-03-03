@@ -46,9 +46,17 @@ int isFull(t_stack *head){
     }
     return retVal;
 }
-/* Voir en cours
-void top()
-*/
+/* Donne la valeur contenu dans le sommet*/
+
+void top(t_stack *head, int *value, int *state){
+    *state=1;
+
+    if(isEmpty(head)!=0){
+        *value=*(head->headStack+head->numElem); 
+        *state=0;   
+        }
+}
+
 
 int stack(t_stack *head, int val){
     int state=1;
