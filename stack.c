@@ -1,17 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define FORMAT "%d" 
-
-typedef int tval_stack; 
-
-typedef struct stack{
-    int maxSize;
-    int numElem;
-    tval_stack *headStack;
-}t_stack;
-
-
-
+#include "stack.h"
 
 t_stack *initStack(int maxSize){
     t_stack *stack;
@@ -80,16 +67,4 @@ void unstack(t_stack *head, tval_stack *ad_unstack_val, int *state){
     }
 
 
-}
-
-int main(){
-    tval_stack val_stack;
-    int state=0;
-    t_stack *stack1=initStack(5);
-    stack(stack1, 3);
-    unstack(stack1,&val_stack, &state);
-    printf(FORMAT, val_stack);
-    printf("\n");
-    unstack(stack1,&val_stack, &state);
-    freeStack(stack1);
 }
