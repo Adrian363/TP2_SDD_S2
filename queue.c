@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define FORMAT "%d" 
 
+typedef int tval_stack;
 
 typedef struct queue{
     int maxSize;
@@ -18,7 +20,7 @@ t_queue *initQueue(int maxSize){
         queue->maxSize=maxSize;
         queue->numElem=-1;
         queue->firstElem=0;
-        queue->lastElem=0;
+        queue->lastElem=maxSize-1; // comme ça ça pointe sur le dernire elem
         queue->headStack=malloc(maxSize*sizeof(int));
 
         if(queue->headStack==NULL){
@@ -30,6 +32,7 @@ t_queue *initQueue(int maxSize){
 }
 
 void freeQueue(t_queue *head){
+t_stack
     free(head->headStack);
     free(head);
     head=NULL;
@@ -47,6 +50,7 @@ int add_value(t_queue *head, int val){
     return state;
 }
 
+
 void get_val(t_queue *head, int *ad_val, int *state){
     *state=1; // va rester à 1 si on ne peut pas dépiler
     if(isEmptyQ(head)==0){
@@ -55,9 +59,25 @@ void get_val(t_queue *head, int *ad_val, int *state){
         head->firstElem+=1;
         *state=0;
     }
+}
 
+int isEmptyQ(t_queue *head){
+    int retVal=0;
+    if (head->numElem==0{
+        retVal=1;
+    }   
+    
+    return retVal;
+}
+
+int isFullQ(t_queue *head){
+    int retVal=0;
+    if(head->numElem==head->maxSize){
+        retVal=1;
+    }
+    return retVal;
 }
 
 int main(){
-    printf("OK");
+    
 }
