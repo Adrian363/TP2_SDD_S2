@@ -32,11 +32,28 @@ t_queue *initQueue(int maxSize){
 }
 
 void freeQueue(t_queue *head){
-t_stack
     free(head->headStack);
     free(head);
     head=NULL;
 }
+
+int isEmptyQ(t_queue *head){
+    int retVal=0;
+    if (head->numElem==0){
+        retVal=1;
+    }   
+    
+    return retVal;
+}
+
+int isFullQ(t_queue *head){
+    int retVal=0;
+    if(head->numElem==head->maxSize){
+        retVal=1;
+    }
+    return retVal;
+}
+
 
 int add_value(t_queue *head, int val){
     int state=0;
@@ -61,23 +78,10 @@ void get_val(t_queue *head, int *ad_val, int *state){
     }
 }
 
-int isEmptyQ(t_queue *head){
-    int retVal=0;
-    if (head->numElem==0{
-        retVal=1;
-    }   
-    
-    return retVal;
-}
-
-int isFullQ(t_queue *head){
-    int retVal=0;
-    if(head->numElem==head->maxSize){
-        retVal=1;
-    }
-    return retVal;
-}
 
 int main(){
+    t_queue *queue=initQueue(6);
+    add_value(queue, 4);
+    freeQueue(queue);
     
 }

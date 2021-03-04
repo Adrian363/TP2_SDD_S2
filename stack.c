@@ -15,7 +15,6 @@ typedef struct stack{
 
 t_stack *initStack(int maxSize){
     t_stack *stack;
-    int defaultAlloc=0;
     stack=malloc(sizeof(t_stack));
     if(stack!=NULL){
         stack->maxSize=maxSize;
