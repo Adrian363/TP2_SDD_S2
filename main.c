@@ -7,39 +7,37 @@
 
 int main(){
 
-    /*Stack*/
-    tval_stack val_stack;
+    tval_stack ni=3;
+    tval_stack pi=2;
     int state=0;
-    t_stack *stack1=initStack(5);
-    stack(stack1, 3);
-    unstack(stack1,&val_stack, &state);
-    printf(FORMAT_S, val_stack);
-    printf("\n");
-    unstack(stack1,&val_stack, &state);
-    freeStack(stack1);
+    t_stack *stack_memory=initStack(10);
+    int end=0;
+    int ret=0;
 
+    while(end==0){
+        while(ni!=pi && pi!=0){
+            printf("OK 2\n");
+            stack(stack_memory, ni);
+            stack(stack_memory, pi);
+            ni=ni-1;
 
-    /*Queue*/
-    int value;
-    t_queue *queue=initQueue(6);
-
-    /*Try to insert more values than the maxSize*/
-    for (int i=0; i<8; i++){
-        add_value(queue, i);
+        }
+        if( isEmpty(stack_memory)==0){
+            printf("OK 3\n");
+            unstack(stack_memory, &pi, &state);
+            unstack(stack_memory, &ni, &state);
+            pi=pi-1;
+            ni=ni-1;
+            ret++;
+        }
+        else{
+            end=1;
+        }
     }
+    printf("%d\n", ret);
 
-    /*Get a value to free a bloc*/
-    get_val(queue, &value, &state ); 
 
-    /*Add a new value in the free bloc*/
-    add_value(queue, 6);
+    freeStack(stack_memory);
 
-    /*Get all the values in the queue*/
-    for (int i=0; i<6; i++){
-        get_val(queue, &value, &state );
-        printf(FORMAT_Q, value);
-    }
-    
-    freeQueue(queue);
     
 }

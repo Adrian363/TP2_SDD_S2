@@ -1,0 +1,34 @@
+/*Stack*/
+    tval_stack val_stack;
+    int state=0;
+    t_stack *stack1=initStack(5);
+    stack(stack1, 3);
+    unstack(stack1,&val_stack, &state);
+    printf(FORMAT_S, val_stack);
+    printf("\n");
+    unstack(stack1,&val_stack, &state);
+    freeStack(stack1);
+
+
+    /*Queue*/
+    int value;
+    t_queue *queue=initQueue(6);
+
+    /*Try to insert more values than the maxSize*/
+    for (int i=0; i<8; i++){
+        add_value(queue, i);
+    }
+
+    /*Get a value to free a bloc*/
+    get_val(queue, &value, &state ); 
+
+    /*Add a new value in the free bloc*/
+    add_value(queue, 6);
+
+    /*Get all the values in the queue*/
+    for (int i=0; i<6; i++){
+        get_val(queue, &value, &state );
+        printf(FORMAT_Q, value);
+    }
+    
+    freeQueue(queue);*/
