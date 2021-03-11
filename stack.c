@@ -1,5 +1,13 @@
 #include "stack.h"
 
+             /*********************************************************/
+             /*                   Adrian Cottais 2021                 */
+             /*-------------------------------------------------------*/
+             /*                        stack.c                        */
+             /*                 Traitement d'une pile                 */
+             /*                   PROGRAMME PRINCIPAL                 */
+             /*********************************************************/
+             
 t_stack *initStack(int maxSize){
     t_stack *stack;
     stack=malloc(sizeof(t_stack));
