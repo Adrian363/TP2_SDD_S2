@@ -34,7 +34,7 @@ int CNP_REC(int ni, int pi){
 /* state= entier, code de retour erreur */ 
 /*  lors de l'empilage et dépilage      */
 /* end= entier qui indique que l'on a   */
-/* a fini d'exectuter tous les contextes*/
+/* a fini d'exectuter tous les contextes */
 /* ret= entier, valeur de retour de CNP */
 /* stack_memory= pointeur vers une pile */
 /*  qui contiendra les contextes        */
