@@ -3,14 +3,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define FORMAT_Q "%d \n" 
+#define FORMAT_Q "%d " 
 
 
              /*********************************************************/
              /*                   Adrian Cottais 2021                 */
              /*-------------------------------------------------------*/
              /*                        queue.c                        */
-             /*                 Traitement d'une file                 */
+             /*            Fichier entêtes traitement d'une file      */
              /*                   PROGRAMME PRINCIPAL                 */
              /*********************************************************/
 
@@ -84,5 +84,17 @@ int add_value(t_queue *head, tval_queue val);
 /***************************************/ 
 
 void get_val(t_queue *head, tval_queue *ad_val, int *state);
+
+/***************************************/
+/* Fonction qui permet de tester le    */
+/* bon fonctionnement d'une file pour  */
+/*l'initialisation, l'insertion,       */
+/* la sortie d'une valeur,             */
+/* la file pleine et                   */
+/* la libération de la file.           */
+/* Paramètre: taille de la file        */
+/***************************************/
+
+void test_queue(int maxSize);
 
 #endif 

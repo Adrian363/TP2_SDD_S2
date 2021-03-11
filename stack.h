@@ -2,14 +2,14 @@
 #define stack_h
 #include <stdio.h>
 #include <stdlib.h>
-#define FORMAT_S "%d \n" 
+#define FORMAT_S "%d " 
 
 
              /*********************************************************/
              /*                   Adrian Cottais 2021                 */
              /*-------------------------------------------------------*/
              /*                        stack.h                        */
-             /*                 Traitement d'une pile                 */
+             /*          Fichier entêtes traitement d'une pile        */
              /*                   PROGRAMME PRINCIPAL                 */
              /*********************************************************/
 
@@ -92,5 +92,18 @@ int stack(t_stack *head, tval_stack val);
 /***************************************/
 
 void unstack(t_stack *head, tval_stack *ad_unstack_val, int *state);
+
+/***************************************/
+/* Fonction qui permet de tester le    */
+/* bon fonctionnement d'une pile pour  */
+/*l'initialisation, l'insertion,       */
+/* le dépilement, la pile pleine et    */
+/* la libération de la pile.           */
+/* Paramètre: taille de la pile        */
+/***************************************/
+
+void test_stack(int maxSize);
+
+
 
 #endif

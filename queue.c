@@ -42,9 +42,6 @@ int add_value(t_queue *head, tval_queue val){
         head->lastElem+=1;
         state=1;
     }
-    else{
-        printf("Queue full ! \n");
-    }
 
     return state;
 }
@@ -58,6 +55,43 @@ void get_val(t_queue *head, tval_queue *ad_val, int *state){
         head->firstElem+=1;
         *state=0;
     }
+}
+
+void test_queue(int maxSize){
+
+    printf("\n Few test on the queue \n\n");
+    tval_queue value;
+    int state;
+
+    t_queue *queue=initQueue(maxSize);
+
+    /*Try to insert more values than the maxSize*/
+    for (int i=0; i<maxSize+2; i++){
+        state=add_value(queue, i);
+        if(state==0)
+        {
+            printf("Queue full ! \n");
+        }
+
+    }
+
+    /*Get a value to free a bloc*/
+    get_val(queue, &value, &state ); 
+    printf("\nValue remove from the front of the queue \n\n");
+    printf(FORMAT_Q, value);
+
+    /*Add a new value in the free bloc*/
+    state=add_value(queue, 6);
+
+    /*Get all the values in the queue*/
+    printf("\nValue in the queue: \n");
+    for (int i=0; i<maxSize; i++){
+        get_val(queue, &value, &state );
+        printf(FORMAT_Q, value);
+        printf("-> "); 
+    }
+    printf("\n\n");
+    freeQueue(queue);
 }
 
 

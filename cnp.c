@@ -1,12 +1,21 @@
 #include "cnp.h"
 #include "stack.h"
 
+             /*********************************************************/
+             /*                   Adrian Cottais 2021                 */
+             /*-------------------------------------------------------*/
+             /*                        cnp.c                          */
+             /*            Fichier contenant les fonctions CNP        */
+             /*                   PROGRAMME PRINCIPAL                 */
+             /*********************************************************/
+
 
 /****************************************/
 /* Lexique CNP_REC:                     */ 
 /* ni= entier                           */
 /* pi=entier                            */ 
-/****************************************/
+/* ni>=pi et pi>=0                      */
+/****************************************/      
 
 int CNP_REC(int ni, int pi){
     if(ni==pi || pi==0){
@@ -21,10 +30,11 @@ int CNP_REC(int ni, int pi){
 /* Lexique CNP_ITER:                    */ 
 /* ni= entier                           */
 /* pi=entier                            */
+/* ni>=pi et pi>=0                      */
 /* state= entier, code de retour erreur */ 
 /*  lors de l'empilage et dépilage      */
-/* end= entier qui sert pour indiquer   */
-/*  que l'on a fini l'exec au process   */
+/* end= entier qui indique que l'on a   */
+/* a fini d'exectuter tous les contextes*/
 /* ret= entier, valeur de retour de CNP */
 /* stack_memory= pointeur vers une pile */
 /*  qui contiendra les contextes        */
