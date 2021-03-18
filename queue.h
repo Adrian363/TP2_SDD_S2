@@ -37,7 +37,7 @@ typedef struct queue{
     int numElem;
     int firstElem;
     int lastElem;
-    tval_queue *headStack;
+    tval_queue *headQueue;
 }t_queue;
 
 /***************************************/

@@ -14,7 +14,7 @@ int main(){
 
     /* Une fonction de test pour vérifier le fonctionnement de la pile*/
 
-    test_stack(8);
+    test_stack(0);
 
     /* Pour la partie CNP*/
 
