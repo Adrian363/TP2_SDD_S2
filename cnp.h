@@ -18,7 +18,7 @@
 /* Fonction à dérécursifier            */
 /***************************************/
 
-int CNP_REC(int ni, int pi);
+int CNP_REC(int n, int p);
 
 /***************************************/
 /* Fonction CNP_ITER avec en paramètre */

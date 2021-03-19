@@ -220,6 +220,6 @@ void test_stack(int maxSize)
     }
     else
     {
-        printf("On ne peut pas créer une pile de 0 éléments \n");
+        printf("On ne peut pas créer une pile de 0 éléments ou moins \n");
     }
 }

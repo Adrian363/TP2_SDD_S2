@@ -8,13 +8,19 @@
 
 int main(){
 
-    /* Quelques tests sur la file avec la fonction suivante:*/
+    /* Quelques tests sur la pile avec la fonction suivante:*/
+
+    /*test_stack(8);
+    test_stack(20);
+    test_stack(0);
+    test_stack(-2);*/
+
+    /* Une fonction de test pour vérifier le fonctionnement de la file*/
 
     test_queue(8);
-
-    /* Une fonction de test pour vérifier le fonctionnement de la pile*/
-
-    test_stack(0);
+    test_queue(20);
+    test_queue(0);
+    test_queue(-2);
 
     /* Pour la partie CNP*/
 

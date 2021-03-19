@@ -213,6 +213,6 @@ void test_queue(int maxSize)
     }
     else
     {
-        printf("On ne peut pas créer une file de 0 éléments \n");
+        printf("On ne peut pas créer une file de 0 éléments ou moins \n");
     }
 }

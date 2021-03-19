@@ -17,12 +17,12 @@
 /* ni>=pi et pi>=0                      */
 /****************************************/      
 
-int CNP_REC(int ni, int pi){
-    if(ni==pi || pi==0){
+int CNP_REC(int n, int p){
+    if(n==p || p==0){
         return 1;
     }
     else{
-        return CNP_REC(ni-1,pi)+CNP_REC(ni-1, pi-1);
+        return CNP_REC(n-1,p)+CNP_REC(n-1, p-1);
     }
 }
 
