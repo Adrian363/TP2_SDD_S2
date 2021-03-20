@@ -3,7 +3,7 @@
 ## Objectif du TP:
 
 Le but de ce TP est dans premier temps de créer les modules de gestion d'une pile et d'une file. Ensuite, il faut coder la fonction CNP() qui est récursive et la transformer en une fonction itérative.
-En option, on peut comparer les temps d'execution des deux fonctions.
+En option, on peut comparer les temps d'éxecution des deux fonctions.
 
 ## Schéma et description des structures de données utilisées
 
@@ -15,21 +15,22 @@ Mise en place d'une pile de maximum n éléments. En entête de cette pile, on r
 - Le nombre de place prise dans la pile initialisé à -1
 - Un pointeur vers le début de la pile
 
-Mettre une photo
+![](https://i.imgur.com/hdPP1sW.png)
+
 
 ### Structure n°2 (Contexte général):
 
-Mise en place d'une file de maximum n éléments. En entête de cette pile, on retrouve un bloc de 5 mots mémoires dans lesquels il y a:
+Mise en place d'une file de maximum n éléments. En entête de cette file, on retrouve un bloc de 5 mots mémoires dans lesquels il y a:
 
-- Le nombre max de place dans la file n
-- Le nombre de place prise dans la pile initialisé à -1
+- Le nombre max de places dans la file (n)
+- Le nombre de places prises dans la file initialisé à -1
 - La place du premier élement dans la file
 - La place du dernier élement dans la file
 - Un pointeur vers le début de la file
 
-Mettre une photo
+![](https://i.imgur.com/vFC32Dy.png)
 
-Pour la dérécursification de la fonction CNP, on utilisera un pile pour stocker le contexte de n et p.
+Pour la dérécursification de la fonction CNP, on utilisera une pile pour stocker le contexte de n et p.
 
 ## Nature des entrées du Programme:
 
@@ -83,9 +84,9 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 
 **Fonction initStack(int maxSize)**:
 ```
-    Allocation bloc de tête de taille;
-    Si bloque est alloué:
-        Stockage de la taille max dans la première case;
+    Allocation bloc de tête de taille 3;
+    Si bloc est alloué:
+        Stockage de maxSize dans la première case;
         Mise à -1 de la seconde case;
         Allocation de la pile de taille maxSize dans la case pointeur;
         
@@ -105,12 +106,12 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 ```
 **Fonction isEmpty(t_stack *head)**:
 ```
-    Retourner 1 si nb élem insérés égale à -1;
+    Retourner 1 si (nb élem insérés) égale à -1;
 ```
 
 **Fonction isFull(t_stack *head)**:
 ```
-    Retourner 1 si (nb elem insérés) égale à (taille max)-1;
+    Retourner 1 si (nb elem insérés) égale à (maxSize-1);
 ```
 
 **Procédure top(t_stack *head, tval_stack *value, int *state)**:
@@ -125,7 +126,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 ```
     Etat prend la valeur 1;
     Si pile pas pleine:
-        Incrementation du nb de valeurs dejà insérées de 1;
+        Incrémentation du nb de valeurs dejà insérées de 1;
         Sommet de la pile prend la val à insérer;
         Etat prend la valeur 0;
     Fsi
@@ -137,7 +138,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 ```
     Etat prend la valeur 1;
     Si pile pas vide:
-        Récupération de la valeur au sommet de la pile
+        Récupération de la valeur au sommet de la pile;
         Décrementation du nb de valeurs dejà insérées de 1;
         Etat prend la valeur 0;
     Fsi
@@ -148,7 +149,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 ```
     Si maxSize > 0:
     
-        Creation pile de taille maxSize avec initStack;
+        Creation pile de taille maxSize avec initStack();
         Pour i de 0 à maxSize-1+2 
         (+2 permet de tester le fonctionnement si on met plus de valeurs que de     places dispo) 
             Appel fonction stack() avec i comme val à insérer;
@@ -161,7 +162,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
         Affichage de la valeur récupérée;
         Appel de la fonction stack() pour rajouter une valeur au sommet;
     
-        Pour i de 0 n-1:
+        Pour i de 0 à n-1:
             Appel unstack();
             Affichage valeur récupérée;
         Fin Pour
@@ -180,7 +181,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 ```
     Allocation bloc de tête de taille 5;
     Si bloc est alloué:
-        Stockage de la taille max dans la première case;
+        Stockage de la maxSize dans la première case;
         Mise à -1 de la seconde case;
         Mise à 0 de la troisième case;
         Mise à maxSize-1 de la quatrième case;
@@ -202,7 +203,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 
 **Fonction isEmptyQ(t_queue *head)**:
 ```
-    Retourner 1 si nb élem insérés égale à -1;
+    Retourner 1 si (nb élem insérés) égale à -1;
 ```
 
 **Fonction isFullQ(t_queue *head)**:
@@ -216,7 +217,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
     Si la file est pas pleine:
         Incrementation du nb de valeurs dejà insérées de 1;
         Sommet de la file prend la val à insérer;
-        Incrementation du nb de valeurs dejà insérées de 1;
+        Incrémentation de la place du dernier élement de 1;
         Etat prend la valeur 1;
 ```
 **Procédure get_val(t_queue *head, tval_queue *ad_val, int *state)**:
@@ -224,7 +225,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
     state prend la valeur 1;
     Si file pas vide:
         Récupération de la valeur au début de la file;
-        Décrementation du nb de valeurs dejà insérées de 1;
+        Décrémentation du nb de valeurs dejà insérées de 1;
         Incrémentation de la place du 1er element de 1;
         state prend la valeur 0;
     Fsi
@@ -243,7 +244,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
             Fsi
         Fin Pour 
     
-        Appel de la fonction get_val() pour libérer dans la file;
+        Appel de la fonction get_val() pour libérer la première place dans la file;
         Affichage de la valeur récupérée;
         Appel de la fonction add_value pour rajouter une valeur dans la file;
     
@@ -271,26 +272,28 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
     Fsi
 ```
 
-Schéma des appels avec n=5 et p=3:
+**Schéma des appels avec n=5 et p=3:**
 
 ![](https://i.imgur.com/01ZWY6z.png)
 
 Pour obtenir la fonction en mode itérative, il faut appliquer la méthode du cours.
 
-![](https://i.imgur.com/2dgqnka.png)
-On supprime ensuite l'appel récursif terminal en ajoutant des variables locales ni et pi et en ajoutant une boucle.
+![](https://i.imgur.com/4EzD9t1.png)
 
-![](https://i.imgur.com/DEyYhYD.png)
+On supprime d'abord l'appel récursif terminal en ajoutant des variables locales ni et pi et en ajoutant une boucle.
+
+![](https://i.imgur.com/zYWukBJ.png)
+
 
 Pour supprimer, l'appel récursif non terminal, on sauvegarde le contexte en empilant les valeurs de ni et pi, on décrémente de 1 ni et ajoute une boucle de retour vers le début. Cependant, on ne passe plus par la partie qui remplace l'appel récursif terminal.
 
-![](https://i.imgur.com/s6hrXsh.png)
+![](https://i.imgur.com/uEhoOgj.png)
+
 
 Pour régler ce problème, quand on a fini d'éxecuter les appels récursifs terminaux, c'est à dire quand pi=ni ou pi=0, on va alors vérifier si la pile est vide ou non. On ajoute +1 à la variable de retour.
 Si elle est non vide, on va dépiler le contexte et décrémenter ni et pi de 1 et recommence le cycle. 
 Si la pile est vide, alors toutes les éxecutions sont finies et on retourne la variable de retour contenant le résultat de la fonction CNP.
-
-![](https://i.imgur.com/B0osZNb.png)
+![](https://i.imgur.com/2zvvlf0.png)
 
 **Fonction CNP_ITER(int ni, int pi)**
 ```
@@ -306,7 +309,7 @@ Si la pile est vide, alors toutes les éxecutions sont finies et on retourne la 
         Incrémenter ret de 1;
         Si pile non vide:
             Dépiler pi et ni;
-            Décrementer ni et pi de 1;
+            Décrémenter ni et pi de 1;
         Sinon:
             fin prend la valeur 1;
         Fsi
@@ -316,10 +319,29 @@ Si la pile est vide, alors toutes les éxecutions sont finies et on retourne la 
             
 ``` 
 
-### Detail TP2.c (main):
+### Détail TP2.c (main):
 
 ```
-    
+    Appel fonction test_stack();
+    Appel fonction test_queue();
+    Lecture sur l'entrée standard de n et p;
+    Si n>=p et p>=0:
+        Relevé du temps avant l'éxecution de la fonction;
+        Appel fonction CNP_REC(n,p) et stockage retour dans res_rec;
+        Relevé du temps après l'éxecution de la fonction;
+        
+        Calcul du temps de d'éxecution et affichage;
+        Afficher res_rec;
+        
+        Relevé du temps avant l'éxecution de la fonction;
+        Appel fonction CNP_ITER(n,p) et stockage retour dans res_iter;
+        Relevé du temps après l'éxecution de la fonction;
+        
+        Calcul du temps de d'éxecution et affichage;
+        Afficher res_iter;
+     Sinon 
+         Ecrire "N et P ne correspondent pas aux criteres.";
+     Fsi 
 ```
 
 ## Tests 
@@ -351,7 +373,7 @@ Si on choisi un nombre de places n>0(exemple:8):
     6 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> 0 -> 
 ```
 
-Explications: 
+**Explications:**
 On essaie d'insérer n+2 valeurs dans la pile donc on reçoit 2 messages d'erreurs "Stack full ! " car ces 2 valeurs n'ont pas pu être insérées faute de place.
 
 Ensuite on récupère la valeur au sommet qui est donc "7" et qui correspond bien à la 8ème valeur dans la pile.
@@ -443,7 +465,7 @@ On peut refaire le test avec n=20 par exemple:
     test_queue(20);
 ```
 
-** Résultats:**
+**Résultats:**
 ```
     Few test on the queue 
 
@@ -485,7 +507,7 @@ Pour tester les fonctions CNP, les seuls tests que l'on peut faire sont:
 - Tester avec les valeurs n=5 et p=3 et voir si l'on obtient bien le même résultat que la trace d'éxecution.
 - Tester avec des valeurs négatives.
 
-Les valeurs de n et p sont à renseigner dans le terminal lorsqu'elles ont demandées.
+Les valeurs de n et p sont à renseigner dans le terminal lorsqu'elles sont demandées.
 
 Les variables res_rec et res_iter permettent de stocker respectivement les valeurs des fonctions CNP.
 
@@ -546,7 +568,7 @@ Si on essaie avec des plus grandes valeurs de n et de p:
 ```
 On obtient bien le même résultat par les 2 fonctions.
 
-Remarque: Si on n et p très grand, il se peut que la version itérative ne fonctionne pas correctement car il y aura pas assez de place pour stocker tous les contextes. Pour cela, au lieu de créer une pile de 10 places, il faut augmenter ce nombre.
+Remarque: Si on n et p très grand, il se peut que la version itérative ne fonctionne pas correctement car il y aura pas assez de place dans la pile pour stocker tous les contextes. Pour cela, au lieu de créer une pile de 10 places, il faut augmenter ce nombre.
 
 **Avec n=val et p=0 dès le premier appel**:
 
