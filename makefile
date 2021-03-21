@@ -1,9 +1,9 @@
 CC=gcc
 OPT= -c -ansi -pedantic -Wall
 tp2 : tp2.o cnp.o queue.o stack.o
-	$(CC) -o TP2 tp2.o cnp.o queue.o stack.o
+	$(CC) -o TP2 TP2.o cnp.o queue.o stack.o
 tp2.o : TP2.c
-	$(CC) $(OPT) TP2.c 
+	$(CC) $(OPT) TP2.c
 cnp.o : cnp.c cnp.h
 	$(CC) $(OPT) cnp.c 
 matrix.o : queue.c queue.h

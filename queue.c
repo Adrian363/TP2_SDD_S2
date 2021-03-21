@@ -35,7 +35,7 @@ t_queue *initQueue(int maxSize)
         queue->maxSize = maxSize;
         queue->numElem = -1;
         queue->firstElem = 0;
-        queue->lastElem = maxSize - 1; // comme ça ça pointe sur le dernire elem
+        queue->lastElem = maxSize - 1; // comme ça ça pointe sur le dernier elem
         queue->headQueue = malloc(maxSize * sizeof(tval_queue));
 
         if (queue->headQueue == NULL)
@@ -54,6 +54,7 @@ t_queue *initQueue(int maxSize)
 /*  head->headQueue: pointeur vers la   */
 /*   tête de la file                    */
 /****************************************/
+
 
 void freeQueue(t_queue *head)
 {
@@ -160,7 +161,7 @@ void get_val(t_queue *head, tval_queue *ad_val, int *state)
 /* Lexique test_queue:                  */
 /* maxSize: entier, nb de places max    */
 /*  dans la file.                       */
-/* state: entier qui contriendra les    */
+/* state: entier qui contiendra les    */
 /*  codes retours                       */
 /* value: type de la file, variable     */
 /*  qui servira pour la récupération des*/
@@ -170,7 +171,7 @@ void get_val(t_queue *head, tval_queue *ad_val, int *state)
 
 void test_queue(int maxSize)
 {
-    /*Vérification l'on veut une file de plus de 0 élements*/
+    /*Vérification que l'on veut une file de plus de 0 élements*/
     if (maxSize > 0)
     {
         printf("\n Few test on the queue \n\n");

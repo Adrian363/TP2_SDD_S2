@@ -26,6 +26,7 @@ int CNP_REC(int n, int p){
     }
 }
 
+
 /****************************************/
 /* Lexique CNP_ITER:                    */ 
 /* ni= entier                           */
