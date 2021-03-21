@@ -35,7 +35,6 @@ int main(){
     /*test_queue(-2);*/
 
     
-    /***** Appel de la fonction CNP recursive *****/
     printf("Choisir un n pour la fonction CNP: \n");
     scanf(FORMAT_VAL, &ni);
     printf("Choisir un p pour la fonction CNP: \n");

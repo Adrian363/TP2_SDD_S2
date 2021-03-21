@@ -35,7 +35,7 @@ int CNP_REC(int n, int p){
 /* state= entier, code de retour erreur */ 
 /*  lors de l'empilage et dépilage      */
 /* end= entier qui indique que l'on a   */
-/* a fini d'exectuter tous les contextes */
+/* a fini d'éxectuter tous les contextes*/
 /* ret= entier, valeur de retour de CNP */
 /* stack_memory= pointeur vers une pile */
 /*  qui contiendra les contextes        */

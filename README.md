@@ -36,7 +36,7 @@ Pour la dérécursification de la fonction CNP, on utilisera une pile pour stock
 
 ### Choix de n et p pour CNP:
 
-Les 2 uniques entrées du programme sont une valeur n et une valeur p qui seront utilisée par les fonctions CNP(). Elle seront demandées à l'utilisateur par une boîte de dialogue.
+Les 2 uniques entrées du programme sont une valeur n et une valeur p qui seront utilisées par les fonctions CNP(). Elle seront demandées à l'utilisateur par une boîte de dialogue.
 Les contraintes pour ces valeurs sont:
 - n>=p
 - p>=0
@@ -62,7 +62,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
     CC=gcc
     OPT= -c -ansi -pedantic -Wall
     tp2 : tp2.o cnp.o queue.o stack.o
-	    $(CC) -o TP2 tp2.o cnp.o queue.o stack.o
+	    $(CC) -o TP2 TP2.o cnp.o queue.o stack.o
     tp2.o : TP2.c
 	    $(CC) $(OPT) TP2.c 
     cnp.o : cnp.c cnp.h
@@ -151,7 +151,8 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
     
         Creation pile de taille maxSize avec initStack();
         Pour i de 0 à maxSize-1+2 
-        (+2 permet de tester le fonctionnement si on met plus de valeurs que de     places dispo) 
+        (+2 permet de tester le fonctionnement si on met plus de valeurs que 
+        de places dispo) 
             Appel fonction stack() avec i comme val à insérer;
             Si insertion non réussite:
                 Ecrire "Pile pleine";
@@ -217,7 +218,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
     Si la file est pas pleine:
         Incrementation du nb de valeurs dejà insérées de 1;
         Sommet de la file prend la val à insérer;
-        Incrémentation de la place du dernier élement de 1;
+        Incrémentation de la place du dernier élément de 1;
         Etat prend la valeur 1;
 ```
 **Procédure get_val(t_queue *head, tval_queue *ad_val, int *state)**:
@@ -226,7 +227,7 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
     Si file pas vide:
         Récupération de la valeur au début de la file;
         Décrémentation du nb de valeurs dejà insérées de 1;
-        Incrémentation de la place du 1er element de 1;
+        Incrémentation de la place du 1er élément de 1;
         state prend la valeur 0;
     Fsi
         
@@ -235,9 +236,10 @@ Si les critères demandés ne sont pas respectés, un message d'erreur sera affi
 ```
     Si maxSize > 0:
     
-        Creation file de taille maxSize avec initStack;
+        Création file de taille maxSize avec initStack;
         Pour i de 0 à maxSize-1+2 
-        (+2 permet de tester le fonctionnement si on met plus de valeurs que de     places dispo) 
+        (+2 permet de tester le fonctionnement si on met plus de valeurs que 
+        de places dispo) 
             Appel fonction add_value() avec i comme val à insérer;
             Si insertion non réussite:
                 Ecrire "File pleine";
@@ -285,13 +287,13 @@ On supprime d'abord l'appel récursif terminal en ajoutant des variables locales
 ![](https://i.imgur.com/zYWukBJ.png)
 
 
-Pour supprimer, l'appel récursif non terminal, on sauvegarde le contexte en empilant les valeurs de ni et pi, on décrémente de 1 ni et ajoute une boucle de retour vers le début. Cependant, on ne passe plus par la partie qui remplace l'appel récursif terminal.
+Pour supprimer, l'appel récursif non terminal, on sauvegarde le contexte en empilant les valeurs de ni et pi, on décrémente de 1 ni et on ajoute une boucle de retour vers le début. Cependant, on ne passe plus par la partie qui remplace l'appel récursif terminal.
 
 ![](https://i.imgur.com/uEhoOgj.png)
 
 
 Pour régler ce problème, quand on a fini d'éxecuter les appels récursifs terminaux, c'est à dire quand pi=ni ou pi=0, on va alors vérifier si la pile est vide ou non. On ajoute +1 à la variable de retour.
-Si elle est non vide, on va dépiler le contexte et décrémenter ni et pi de 1 et recommence le cycle. 
+Si elle est non vide, on va dépiler le contexte et décrémenter ni et pi de 1 et recommencer le cycle. 
 Si la pile est vide, alors toutes les éxecutions sont finies et on retourne la variable de retour contenant le résultat de la fonction CNP.
 ![](https://i.imgur.com/2zvvlf0.png)
 
@@ -330,14 +332,14 @@ Si la pile est vide, alors toutes les éxecutions sont finies et on retourne la 
         Appel fonction CNP_REC(n,p) et stockage retour dans res_rec;
         Relevé du temps après l'éxecution de la fonction;
         
-        Calcul du temps de d'éxecution et affichage;
+        Calcul du temps d'éxecution et affichage;
         Afficher res_rec;
         
         Relevé du temps avant l'éxecution de la fonction;
         Appel fonction CNP_ITER(n,p) et stockage retour dans res_iter;
         Relevé du temps après l'éxecution de la fonction;
         
-        Calcul du temps de d'éxecution et affichage;
+        Calcul du temps d'éxecution et affichage;
         Afficher res_iter;
      Sinon 
          Ecrire "N et P ne correspondent pas aux criteres.";
@@ -348,7 +350,7 @@ Si la pile est vide, alors toutes les éxecutions sont finies et on retourne la 
 
 ### Tests sur les fonctions de la pile:
 
-Comme détaillé plus haut, la procédure test_stack() permet de tester toutes les fonctions créees pour la pile.
+Comme détaillé plus haut, la procédure test_stack() permet de tester toutes les fonctions créées pour la pile.
 
 Lorsqu'elle est appelée dans le main, il faut préciser en paramètre le nombre de places souhaitées dans la pile. 
 Cette fonction va permettre d'insérer des élements, même plus que prévu pour voir si les messages d'erreurs fonctionnent correctement, de retirer une valeur au sommet et d'en rajouter une pour voir s'il y a n'y a pas de problèmes d'insertion. Enfin, on dépile toutes les valeurs et on les affichent puis on fini par libérer la pile.
@@ -381,7 +383,9 @@ Ensuite la valeur 6 est rajoutée au sommet et on dépile tous les éléments de
 
 Enfin, avec valgrind, on peut voir que tous les blocs mémoires alloués ont été libérés.
 
-**Mettre photo**
+![](https://i.imgur.com/ROhOjsU.png)
+
+
 
 On peut refaire le test avec n=20 par exemple:
 
@@ -402,8 +406,6 @@ On peut refaire le test avec n=20 par exemple:
     6 -> 18 -> 17 -> 16 -> 15 -> 14 -> 13 -> 12 -> 11 -> 10 -> 9 -> 8 -> 7  -> 6 -> 5 -> 4 -> 
     3 -> 2 -> 1 -> 0 ->
 ```
-
- **Mettre photo valgrind**
  
  Si on veut tester avec un nombre de place n=0 ou n<0:
  
@@ -421,7 +423,7 @@ On obtient bien les 2 messages d'erreurs nous indiquant que l'on ne peut pas cr�
 
 ### Tests sur les fonctions de la file:
 
-Comme détaillé plus haut, la procédure test_queue() permet de tester toutes les fonctions créees pour la file.
+Comme détaillé plus haut, la procédure test_queue() permet de tester toutes les fonctions créées pour la file.
 
 Lorsqu'elle est appelée dans le main, il faut préciser en paramètre le nombre de places souhaitées. 
 Cette fonction va permettre d'insérer des élements, même plus que prévu pour voir si les messages d'erreurs fonctionnent correctement, de retirer une valeur en début de file et d'en rajouter une dans la place libérée. Enfin, on récupère toutes les valeurs et on les affichent puis on fini par libérer la file.
@@ -457,7 +459,8 @@ Ensuite la valeur 6 est rajoutée en fin de file et on récupère tous les élé
 
 Enfin, avec valgrind, on peut voir que tous les blocs mémoires alloués ont été libérés.
 
-**Mettre photo valgrind**
+![](https://i.imgur.com/VEagxry.png)
+
 
 On peut refaire le test avec n=20 par exemple:
 
@@ -479,8 +482,6 @@ On peut refaire le test avec n=20 par exemple:
     1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 
     -> 16 -> 17 -> 18 -> 19 -> 6 -> 
 ```
-
-**Mettre photo valgrind**
  
  Si on veut tester avec un nombre de place n=0 ou n<0:
  

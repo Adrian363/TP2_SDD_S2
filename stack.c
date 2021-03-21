@@ -14,7 +14,7 @@
 /* stack->maxSize: entier qui stocke    */
 /*  le nb max de places dans la         */
 /*  pile                                */
-/* stack->numElem: entier nb élements   */
+/* stack->numElem: entier nb éléments   */
 /*  déjà empilés.                       */
 /* stack->headStack: pointeur vers la   */
 /*  tête de la pile                     */
@@ -179,7 +179,7 @@ void unstack(t_stack *head, tval_stack *ad_unstack_val, int *state)
 void test_stack(int maxSize)
 {
 
-    /*Vérification l'on veut une pile de plus de 0 élements*/
+    /*Vérification l'on veut une pile de plus de 0 éléments*/
     if (maxSize > 0)
     {
         printf("\nFew tests on the stack \n \n");

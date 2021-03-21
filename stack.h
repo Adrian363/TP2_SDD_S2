@@ -15,20 +15,20 @@
 
              
 /***************************************/
-/* Definition d'un typedef qui         */
-/* represente le type des donnees dans */
+/* Définition d'un typedef qui         */
+/* représente le type des données dans */
 /* la pile. Modifiable selon les       */
-/* donnees                             */
+/* données                             */
 /***************************************/
 
 typedef int tval_stack; 
 
 /***************************************/
 /* Définition de la structure qui sera */
-/* utilisee pour stocker la taille de  */
-/* la pile, le nombre d'elements       */
-/* inseres ainsi qu'un pointeur vers le*/
-/* debut de cette pile                 */
+/* utilisée pour stocker la taille de  */
+/* la pile, le nombre d'éléments       */
+/* insérés ainsi qu'un pointeur vers le*/
+/* début de cette pile                 */
 /***************************************/
 
 typedef struct stack{
@@ -39,19 +39,19 @@ typedef struct stack{
 
 
 /***************************************/
-/* Fonction qui creer une pile avec    */
-/* comme parametres le nombre maximal  */
-/* de valeurs a stocker.               */
+/* Fonction qui crée une pile avec     */
+/* comme paramètres le nombre maximal  */
+/* de valeurs à stocker.               */
 /***************************************/
 
 t_stack *initStack(int maxSize);
 
 /***************************************/
-/* Fonction qui permet de liberer la   */
+/* Fonction qui permet de libérer la   */
 /* pile ainsi que la structure qui     */
 /* permet de stocker la taille max, nb */
-/* d'elements. Passage de la tete de   */ 
-/* l'ensemble en parametre             */
+/* d'elements. Passage de la tête de   */ 
+/* l'ensemble en paramètre             */
 /***************************************/
 
 
